@@ -152,3 +152,334 @@ footer {
     display: block;
     margin: 0 auto;
 }
+
+/* ========================================
+   商工ギルド TOP
+======================================== */
+
+
+/* ---------- ギルドヘッダー ---------- */
+
+.guild-header {
+    text-align: center;
+    padding: 35px 20px 25px;
+}
+
+.home-logo {
+    width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.player-info h1 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 0.08em;
+}
+
+.player-info p {
+    margin: 6px 0;
+    color: #c9c4b5;
+    font-size: 14px;
+}
+
+.guild-message {
+    margin: 22px auto 0;
+    color: #d7d2c5;
+    font-size: 15px;
+}
+
+
+/* ---------- TOP全体 ---------- */
+
+.guild-home-main {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding-bottom: 110px;
+}
+
+
+/* ---------- クエスト掲示板 ---------- */
+
+.quest-board {
+    position: relative;
+
+    padding: 28px 24px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #3a2920,
+            #241914
+        );
+
+    border: 3px solid #6e5135;
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.45),
+        inset 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+
+/* 掲示板のタイトル */
+
+.board-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.board-title h2 {
+    margin: 0;
+
+    font-size: 23px;
+    letter-spacing: 0.06em;
+}
+
+.quest-count {
+    padding: 5px 10px;
+
+    border: 1px solid rgba(215, 190, 120, 0.6);
+    border-radius: 20px;
+
+    color: #e1c978;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* ---------- クエストカード ---------- */
+
+.quest-card {
+    position: relative;
+
+    margin-top: 18px;
+    padding: 22px 22px 20px;
+
+    color: #30271e;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee4c8,
+            #d9cba9
+        );
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 7px 12px rgba(0, 0, 0, 0.35);
+
+    transform: rotate(-0.4deg);
+}
+
+
+/* カードを少しずつ傾ける */
+
+.quest-card:nth-of-type(3) {
+    transform: rotate(0.5deg);
+}
+
+.quest-card:nth-of-type(4) {
+    transform: rotate(-0.7deg);
+}
+
+
+/* ---------- ランク ---------- */
+
+.quest-card.rank-c {
+    border-left: 7px solid #5f8f62;
+}
+
+.quest-card.rank-b {
+    border-left: 7px solid #4f78a8;
+}
+
+.quest-card.rank-a {
+    border-left: 7px solid #c77b38;
+}
+
+.quest-card.rank-s {
+    border-left: 7px solid #76529b;
+}
+
+
+/* ---------- クエスト内容 ---------- */
+
+.quest-category {
+    display: inline-block;
+
+    margin-bottom: 8px;
+    padding: 3px 9px;
+
+    background: rgba(48, 39, 30, 0.1);
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.quest-card h3 {
+    margin: 5px 0 8px;
+
+    font-size: 20px;
+}
+
+.quest-card p {
+    margin: 0;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* ---------- EXP ---------- */
+
+.quest-reward {
+    margin-top: 15px;
+
+    color: #8b6416;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* ---------- 称号・特殊情報 ---------- */
+
+.quest-title {
+    margin-top: 8px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ---------- その他セクション ---------- */
+
+.home-section {
+    margin-top: 35px;
+}
+
+.home-section h2 {
+    margin-bottom: 14px;
+
+    font-size: 20px;
+    letter-spacing: 0.05em;
+}
+
+.notice-card {
+    padding: 20px;
+
+    background: rgba(25, 35, 31, 0.9);
+
+    border: 1px solid rgba(215, 190, 120, 0.3);
+    border-radius: 10px;
+
+    color: #c9c4b5;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   下部メニュー
+======================================== */
+
+.bottom-menu {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+
+    background: rgba(13, 20, 18, 0.96);
+
+    border-top: 1px solid rgba(215, 190, 120, 0.35);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 100;
+}
+
+.bottom-menu button {
+    margin: 0;
+    padding: 7px 3px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: #c9c4b5;
+
+    font-size: 19px;
+    font-weight: normal;
+
+    box-shadow: none;
+}
+
+.bottom-menu button span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 10px;
+}
+
+.bottom-menu button:hover {
+    transform: none;
+
+    background: rgba(215, 190, 120, 0.08);
+
+    box-shadow: none;
+
+    color: #e1c978;
+}
+
+
+/* ---------- スマホ ---------- */
+
+@media (max-width: 600px) {
+
+    .guild-header {
+        padding-top: 25px;
+    }
+
+    .home-logo {
+        width: 145px;
+    }
+
+    .player-info h1 {
+        font-size: 20px;
+    }
+
+    .quest-board {
+        padding: 22px 16px 25px;
+    }
+
+    .board-title h2 {
+        font-size: 19px;
+    }
+
+    .quest-card {
+        padding: 18px 17px;
+    }
+
+    .quest-card h3 {
+        font-size: 18px;
+    }
+
+    .bottom-menu button span {
+        font-size: 9px;
+    }
+}
+
