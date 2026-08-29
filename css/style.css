@@ -1,1 +1,134 @@
+/* ========================================
+   商工ギルド 2.0
+   基本スタイル
+======================================== */
 
+/* ---------- 全体 ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        "Noto Sans JP",
+        "Yu Gothic",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #263b35 0%,
+            #17231f 45%,
+            #0d1412 100%
+        );
+
+    color: #f4f1e8;
+}
+
+
+/* ---------- ヘッダー ---------- */
+
+header {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 42px;
+    letter-spacing: 0.08em;
+}
+
+header p {
+    margin-top: 12px;
+    color: #c9c4b5;
+    font-size: 16px;
+}
+
+
+/* ---------- メイン ---------- */
+
+main {
+    width: min(900px, 90%);
+    margin: 0 auto;
+}
+
+
+/* ---------- ギルドカード ---------- */
+
+.guild-card {
+    padding: 40px;
+    text-align: center;
+
+    background: rgba(25, 35, 31, 0.92);
+
+    border: 1px solid rgba(215, 190, 120, 0.45);
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(8px);
+}
+
+.guild-card h2 {
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.guild-card p {
+    line-height: 1.9;
+    color: #d7d2c5;
+}
+
+
+/* ---------- ボタン ---------- */
+
+button {
+    margin-top: 20px;
+    padding: 14px 32px;
+
+    border: 1px solid rgba(215, 190, 120, 0.8);
+    border-radius: 8px;
+
+    background: #263b35;
+    color: #f4f1e8;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    background: #314b42;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ---------- フッター ---------- */
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+
+    color: #888579;
+    font-size: 13px;
+}
