@@ -138,8 +138,9 @@ footer {
 }
 
 .guild-logo img {
-    width: min(320px, 80%);
+    width: 180px;
     height: auto;
     display: block;
     margin: 0 auto;
 }
+
