@@ -1,3 +1,7 @@
 function startGuild() {
-    alert("商工ギルドへようこそ！");
+
+    document.getElementById("welcome-screen").style.display = "none";
+
+    document.getElementById("guild-home").style.display = "block";
+
 }
