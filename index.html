@@ -106,31 +106,30 @@
 
 
                 <!-- クエスト -->
+<article class="quest-card rank-c" onclick="openQuest()">
 
-                <article class="quest-card rank-c">
+    <div class="quest-category">
+        ボランティア
+    </div>
 
-                    <div class="quest-category">
-                        ボランティア
-                    </div>
+    <h3>
+        地域清掃ボランティア
+    </h3>
 
-                    <h3>
-                        地域清掃ボランティア
-                    </h3>
+    <p>
+        9/2（水） 菊池市中央公園
+    </p>
 
-                    <p>
-                        9/2（水） 菊池市中央公園
-                    </p>
+    <div class="quest-reward">
+        +80 EXP
+    </div>
 
-                    <div class="quest-reward">
-                        +80 EXP
-                    </div>
+    <div class="quest-title">
+        🏆 限定称号「地域の助っ人」対象
+    </div>
 
-                    <div class="quest-title">
-                        🏆 限定称号「地域の助っ人」対象
-                    </div>
-
-                </article>
-
+</article>
+          
 
                 <article class="quest-card rank-b">
 
@@ -251,6 +250,68 @@
         </nav>
 
     </div>
+
+    <!-- ==============================
+     クエスト詳細モーダル
+============================== -->
+
+<div id="quest-modal" class="quest-modal">
+
+    <div class="quest-modal-content">
+
+        <button
+            class="modal-close"
+            onclick="closeQuest()"
+            aria-label="閉じる"
+        >
+            ×
+        </button>
+
+        <div class="quest-modal-category">
+            ボランティア
+        </div>
+
+        <h2>地域清掃ボランティア</h2>
+
+        <div class="quest-modal-rank">
+            RANK C
+        </div>
+
+        <div class="quest-detail">
+
+            <p>
+                📅 <strong>日時</strong><br>
+                9月2日（水）
+            </p>
+
+            <p>
+                📍 <strong>場所</strong><br>
+                菊池市中央公園
+            </p>
+
+            <p>
+                📝 <strong>内容</strong><br>
+                地域の清掃活動に参加します。
+            </p>
+
+            <p>
+                🏆 <strong>獲得可能称号</strong><br>
+                「地域の助っ人」
+            </p>
+
+        </div>
+
+        <div class="modal-reward">
+            +80 EXP
+        </div>
+
+        <button class="quest-accept">
+            クエストを受ける
+        </button>
+
+    </div>
+
+</div>
 
 
     <script src="js/app.js"></script>
