@@ -3,39 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>商工ギルド</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1 class="guild-logo">
-    <img src="assets/logo.png" alt="商工ギルド">
-</h1>
-        <p>ようこそ、冒険者。</p>
-    </header>
+    <!-- ==============================
+         入口画面
+    ============================== -->
 
-    <main>
+    <div id="welcome-screen">
 
-        <section class="guild-card">
-            <h2>⚔️ ギルドへようこそ</h2>
-            <p>
-                学校生活という冒険に出よう。<br>
-                あなたの活動が、経験となり、記録となる。
+        <header>
+            <h1 class="guild-logo">
+                <img src="assets/logo.png" alt="商工ギルド">
+            </h1>
+
+            <p>ようこそ、冒険者。</p>
+        </header>
+
+        <main>
+
+            <section class="guild-card">
+                <h2>⚔️ ギルドへようこそ</h2>
+
+                <p>
+                    学校生活という冒険に出よう。<br>
+                    あなたの活動が、経験となり、記録となる。
+                </p>
+
+                <button onclick="startGuild()">
+                    ギルドへ入る
+                </button>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>© 商工ギルド</p>
+        </footer>
+
+    </div>
+
+
+    <!-- ==============================
+         商工ギルド TOP
+    ============================== -->
+
+    <div id="guild-home" style="display: none;">
+
+        <!-- プレイヤー情報 -->
+
+        <header class="guild-header">
+
+            <img
+                src="assets/logo.png"
+                alt="商工ギルド"
+                class="home-logo"
+            >
+
+            <div class="player-info">
+
+                <h1>Lv.24 冒険者</h1>
+
+                <p>
+                    情報管理科2年
+                </p>
+
+                <p>
+                    ⚔️ パーティー
+                </p>
+
+            </div>
+
+            <p class="guild-message">
+                「冒険者よ、本日の依頼を確認せよ。」
             </p>
 
-            <button onclick="startGuild()">
-                ギルドへ入る
+        </header>
+
+
+        <main class="guild-home-main">
+
+            <!-- ==============================
+                 クエスト掲示板
+            ============================== -->
+
+            <section class="quest-board">
+
+                <div class="board-title">
+
+                    <h2>📜 クエスト掲示板</h2>
+
+                    <span class="quest-count">
+                        NEW 4件
+                    </span>
+
+                </div>
+
+
+                <!-- クエスト -->
+
+                <article class="quest-card rank-c">
+
+                    <div class="quest-category">
+                        ボランティア
+                    </div>
+
+                    <h3>
+                        地域清掃ボランティア
+                    </h3>
+
+                    <p>
+                        9/2（水） 菊池市中央公園
+                    </p>
+
+                    <div class="quest-reward">
+                        +80 EXP
+                    </div>
+
+                    <div class="quest-title">
+                        🏆 限定称号「地域の助っ人」対象
+                    </div>
+
+                </article>
+
+
+                <article class="quest-card rank-b">
+
+                    <div class="quest-category">
+                        学校行事
+                    </div>
+
+                    <h3>
+                        商工フェスタ準備クエスト
+                    </h3>
+
+                    <p>
+                        設営・装飾・案内スタッフ募集中
+                    </p>
+
+                    <div class="quest-reward">
+                        +40 EXP
+                    </div>
+
+                    <div class="quest-title">
+                        ⚔️ パーティーイベント対象
+                    </div>
+
+                </article>
+
+
+                <article class="quest-card rank-a">
+
+                    <div class="quest-category">
+                        資格
+                    </div>
+
+                    <h3>
+                        日商簿記2級 合格報告
+                    </h3>
+
+                    <p>
+                        合格者は実績登録できます。
+                    </p>
+
+                    <div class="quest-reward">
+                        +120 EXP
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ==============================
+                 開催中イベント
+            ============================== -->
+
+            <section class="home-section">
+
+                <h2>🎪 開催中イベント</h2>
+
+                <div class="notice-card">
+                    現在開催中のイベントはありません。
+                </div>
+
+            </section>
+
+
+            <!-- ==============================
+                 パーティーのお知らせ
+            ============================== -->
+
+            <section class="home-section">
+
+                <h2>⚔️ パーティーからのお知らせ</h2>
+
+                <div class="notice-card">
+                    パーティーのお知らせがここに表示されます。
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ==============================
+             下部メニュー
+        ============================== -->
+
+        <nav class="bottom-menu">
+
+            <button>
+                🪪
+                <span>ギルドカード</span>
             </button>
-        </section>
 
-    </main>
+            <button>
+                📜
+                <span>冒険の記録</span>
+            </button>
 
-    <footer>
-        <p>© 商工ギルド</p>
-    </footer>
+            <button>
+                🏆
+                <span>称号</span>
+            </button>
+
+            <button>
+                ⚔️
+                <span>パーティー</span>
+            </button>
+
+            <button>
+                📌
+                <span>掲示板</span>
+            </button>
+
+            <button>
+                🎪
+                <span>イベント</span>
+            </button>
+
+        </nav>
+
+    </div>
+
 
     <script src="js/app.js"></script>
+
 </body>
 </html>
