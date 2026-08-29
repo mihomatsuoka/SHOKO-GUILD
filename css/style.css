@@ -144,3 +144,11 @@ footer {
     margin: 0 auto;
 }
 
+/* ---------- ギルドTOP ロゴ ---------- */
+
+.home-logo {
+    width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
