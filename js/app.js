@@ -1,3 +1,4 @@
+```javascript
 /* ========================================
    商工ギルド 2.0
    JavaScript
@@ -61,15 +62,129 @@ function startGuild() {
 }
 
 
+/* ---------- ページ切り替え ---------- */
+
+function showPage(pageName) {
+
+    const pages = document.querySelectorAll(".guild-page");
+
+    /* すべてのページを非表示 */
+
+    pages.forEach(function(page) {
+
+        page.style.display = "none";
+
+    });
+
+
+    /* 選択されたページだけ表示 */
+
+    const targetPage =
+        document.getElementById("page-" + pageName);
+
+    if (targetPage) {
+
+        targetPage.style.display = "block";
+
+    }
+
+
+    /* 冒険の記録を開いたとき */
+
+    if (pageName === "adventure") {
+
+        showAdventureLog();
+
+    }
+
+}
+
+
+/* ---------- 冒険の記録 ---------- */
+
+function showAdventureLog() {
+
+    const container =
+        document.getElementById("accepted-quests");
+
+
+    if (!container) {
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    /* まだクエストを受けていない場合 */
+
+    if (acceptedQuests.length === 0) {
+
+        container.innerHTML = `
+            <div class="notice-card">
+                まだ受注したクエストはありません。
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /* 受注したクエストを表示 */
+
+    acceptedQuests.forEach(function(questId) {
+
+        const quest = quests[questId];
+
+        if (!quest) {
+            return;
+        }
+
+
+        const card =
+            document.createElement("div");
+
+        card.className = "quest-record";
+
+
+        card.innerHTML = `
+            <div class="quest-record-category">
+                ${quest.category}
+            </div>
+
+            <h3>
+                ${quest.title}
+            </h3>
+
+            <p>
+                ${quest.rank}　${quest.exp}
+            </p>
+
+            <span class="quest-status">
+                ✓ 受注済み
+            </span>
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
 /* ---------- クエスト詳細を開く ---------- */
 
 function openQuest(questId) {
 
     const quest = quests[questId];
 
+
     if (!quest) {
         return;
     }
+
 
     currentQuestId = questId;
 
@@ -103,14 +218,22 @@ function openQuest(questId) {
         document.getElementById("quest-accept-button");
 
 
+    /* すでに受注している場合 */
+
     if (acceptedQuests.includes(questId)) {
 
         button.textContent = "✓ 受注済み";
+
         button.disabled = true;
 
-    } else {
+    }
+
+    /* まだ受注していない場合 */
+
+    else {
 
         button.textContent = "クエストを受ける";
+
         button.disabled = false;
 
     }
@@ -130,6 +253,8 @@ function acceptQuest() {
     }
 
 
+    /* 二重登録を防止 */
+
     if (!acceptedQuests.includes(currentQuestId)) {
 
         acceptedQuests.push(currentQuestId);
@@ -139,6 +264,7 @@ function acceptQuest() {
 
     const button =
         document.getElementById("quest-accept-button");
+
 
     button.textContent = "✓ 受注済み";
 
@@ -154,3 +280,4 @@ function closeQuest() {
     document.getElementById("quest-modal").style.display = "none";
 
 }
+```
