@@ -1,6 +1,45 @@
+
 /* ========================================
    商工ギルド 2.0
    JavaScript
+======================================== */
+
+
+/* ========================================
+   称号データ
+======================================== */
+
+const titles = [
+
+    {
+        id: "helper",
+        name: "地域の助っ人",
+        description: "地域活動に参加した証",
+        rank: "C",
+        obtained: false
+    },
+
+    {
+        id: "festival",
+        name: "商工フェスタの功労者",
+        description: "商工フェスタに貢献した証",
+        rank: "B",
+        obtained: false
+    },
+
+    {
+        id: "bookkeeper",
+        name: "簿記マスター",
+        description: "日商簿記2級に合格した証",
+        rank: "A",
+        obtained: false
+    }
+
+];
+
+
+/* ========================================
+   クエストデータ
 ======================================== */
 
 const quests = {
@@ -41,9 +80,18 @@ const quests = {
 };
 
 
+/* ========================================
+   現在の状態
+======================================== */
+
 let currentQuestId = null;
+
 let acceptedQuests = [];
 
+
+/* ========================================
+   ギルドへ入る
+======================================== */
 
 function startGuild() {
 
@@ -54,9 +102,15 @@ function startGuild() {
 }
 
 
+/* ========================================
+   ページ切り替え
+======================================== */
+
 function showPage(pageName) {
 
-    const pages = document.querySelectorAll(".guild-page");
+    const pages =
+        document.querySelectorAll(".guild-page");
+
 
     pages.forEach(function(page) {
 
@@ -68,6 +122,7 @@ function showPage(pageName) {
     const targetPage =
         document.getElementById("page-" + pageName);
 
+
     if (targetPage) {
 
         targetPage.style.display = "block";
@@ -75,19 +130,35 @@ function showPage(pageName) {
     }
 
 
+    /* 冒険の記録 */
+
     if (pageName === "adventure") {
 
         showAdventureLog();
 
     }
 
+
+    /* 称号 */
+
+    if (pageName === "titles") {
+
+        renderTitles("all");
+
+    }
+
 }
 
+
+/* ========================================
+   冒険の記録
+======================================== */
 
 function showAdventureLog() {
 
     const container =
         document.getElementById("accepted-quests");
+
 
     if (!container) {
         return;
@@ -96,6 +167,8 @@ function showAdventureLog() {
 
     container.innerHTML = "";
 
+
+    /* 受注クエストがない場合 */
 
     if (acceptedQuests.length === 0) {
 
@@ -109,9 +182,12 @@ function showAdventureLog() {
     }
 
 
+    /* 受注したクエストを表示 */
+
     acceptedQuests.forEach(function(questId) {
 
         const quest = quests[questId];
+
 
         if (!quest) {
             return;
@@ -121,7 +197,9 @@ function showAdventureLog() {
         const card =
             document.createElement("div");
 
-        card.className = "quest-record";
+
+        card.className =
+            "quest-record";
 
 
         card.innerHTML =
@@ -151,9 +229,14 @@ function showAdventureLog() {
 }
 
 
+/* ========================================
+   クエスト詳細を開く
+======================================== */
+
 function openQuest(questId) {
 
     const quest = quests[questId];
+
 
     if (!quest) {
         return;
@@ -166,23 +249,30 @@ function openQuest(questId) {
     document.getElementById("modal-category").textContent =
         quest.category;
 
+
     document.getElementById("modal-title").textContent =
         quest.title;
+
 
     document.getElementById("modal-rank").textContent =
         quest.rank;
 
+
     document.getElementById("modal-date").textContent =
         quest.date;
+
 
     document.getElementById("modal-place").textContent =
         quest.place;
 
+
     document.getElementById("modal-description").textContent =
         quest.description;
 
+
     document.getElementById("modal-title-reward").textContent =
         quest.titleReward;
+
 
     document.getElementById("modal-exp").textContent =
         quest.exp;
@@ -192,25 +282,38 @@ function openQuest(questId) {
         document.getElementById("quest-accept-button");
 
 
+    /* すでに受注している場合 */
+
     if (acceptedQuests.includes(questId)) {
 
-        button.textContent = "✓ 受注済み";
+        button.textContent =
+            "✓ 受注済み";
 
         button.disabled = true;
 
-    } else {
+    }
 
-        button.textContent = "クエストを受ける";
+    /* まだ受注していない場合 */
+
+    else {
+
+        button.textContent =
+            "クエストを受ける";
 
         button.disabled = false;
 
     }
 
 
-    document.getElementById("quest-modal").style.display = "flex";
+    document.getElementById("quest-modal").style.display =
+        "flex";
 
 }
 
+
+/* ========================================
+   クエストを受ける
+======================================== */
 
 function acceptQuest() {
 
@@ -230,15 +333,140 @@ function acceptQuest() {
         document.getElementById("quest-accept-button");
 
 
-    button.textContent = "✓ 受注済み";
+    button.textContent =
+        "✓ 受注済み";
+
 
     button.disabled = true;
 
 }
 
 
+/* ========================================
+   モーダルを閉じる
+======================================== */
+
 function closeQuest() {
 
-    document.getElementById("quest-modal").style.display = "none";
+    document.getElementById("quest-modal").style.display =
+        "none";
 
 }
+
+
+/* ========================================
+   称号一覧を表示
+======================================== */
+
+function renderTitles(filter = "all") {
+
+    const titleList =
+        document.getElementById("title-list");
+
+
+    if (!titleList) {
+        return;
+    }
+
+
+    /* 一度中身を空にする */
+
+    titleList.innerHTML = "";
+
+
+    /* 称号を1つずつ生成 */
+
+    titles.forEach(function(title) {
+
+
+        /* 「獲得済みのみ」の場合 */
+
+        if (
+            filter === "obtained" &&
+            !title.obtained
+        ) {
+
+            return;
+
+        }
+
+
+        /* 称号カード */
+
+        const card =
+            document.createElement("div");
+
+
+        if (title.obtained) {
+
+            card.className =
+                "title-card title-obtained";
+
+        } else {
+
+            card.className =
+                "title-card title-locked";
+
+        }
+
+
+        /* カードの中身 */
+
+        card.innerHTML =
+
+            '<div class="title-icon">' +
+
+                (
+                    title.obtained
+                    ? "🏆"
+                    : "🔒"
+                ) +
+
+            '</div>' +
+
+            '<div class="title-info">' +
+
+                '<div class="title-rank">' +
+                    'RANK ' +
+                    title.rank +
+                '</div>' +
+
+                '<h3>' +
+                    title.name +
+                '</h3>' +
+
+                '<p>' +
+                    title.description +
+                '</p>' +
+
+            '</div>';
+
+
+        titleList.appendChild(card);
+
+    });
+
+}
+
+
+/* ========================================
+   すべての称号を表示
+======================================== */
+
+function showAllTitles() {
+
+    renderTitles("all");
+
+}
+
+
+/* ========================================
+   獲得済み称号のみ表示
+======================================== */
+
+function showObtainedTitles() {
+
+    renderTitles("obtained");
+
+}
+
