@@ -1,11 +1,7 @@
-```javascript
 /* ========================================
    商工ギルド 2.0
    JavaScript
 ======================================== */
-
-
-/* ---------- クエストデータ ---------- */
 
 const quests = {
 
@@ -45,13 +41,9 @@ const quests = {
 };
 
 
-/* ---------- 現在の状態 ---------- */
-
 let currentQuestId = null;
 let acceptedQuests = [];
 
-
-/* ---------- ギルドへ入る ---------- */
 
 function startGuild() {
 
@@ -61,8 +53,6 @@ function startGuild() {
 
 }
 
-
-/* ---------- ページ切り替え ---------- */
 
 function showPage(pageName) {
 
@@ -94,13 +84,10 @@ function showPage(pageName) {
 }
 
 
-/* ---------- 冒険の記録 ---------- */
-
 function showAdventureLog() {
 
     const container =
         document.getElementById("accepted-quests");
-
 
     if (!container) {
         return;
@@ -164,12 +151,9 @@ function showAdventureLog() {
 }
 
 
-/* ---------- クエスト詳細を開く ---------- */
-
 function openQuest(questId) {
 
     const quest = quests[questId];
-
 
     if (!quest) {
         return;
@@ -228,8 +212,6 @@ function openQuest(questId) {
 }
 
 
-/* ---------- クエストを受ける ---------- */
-
 function acceptQuest() {
 
     if (!currentQuestId) {
@@ -255,11 +237,8 @@ function acceptQuest() {
 }
 
 
-/* ---------- モーダルを閉じる ---------- */
-
 function closeQuest() {
 
     document.getElementById("quest-modal").style.display = "none";
 
 }
-```
