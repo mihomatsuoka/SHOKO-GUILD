@@ -106,7 +106,11 @@
 
 
                 <!-- クエスト -->
-<article class="quest-card rank-c" onclick="openQuest()">
+<!-- 地域清掃 -->
+<article
+    class="quest-card rank-c"
+    onclick="openQuest('cleanup')"
+>
 
     <div class="quest-category">
         ボランティア
@@ -129,53 +133,60 @@
     </div>
 
 </article>
-          
-
-                <article class="quest-card rank-b">
-
-                    <div class="quest-category">
-                        学校行事
-                    </div>
-
-                    <h3>
-                        商工フェスタ準備クエスト
-                    </h3>
-
-                    <p>
-                        設営・装飾・案内スタッフ募集中
-                    </p>
-
-                    <div class="quest-reward">
-                        +40 EXP
-                    </div>
-
-                    <div class="quest-title">
-                        ⚔️ パーティーイベント対象
-                    </div>
-
-                </article>
 
 
-                <article class="quest-card rank-a">
+<!-- 商工フェスタ -->
+<article
+    class="quest-card rank-b"
+    onclick="openQuest('festival')"
+>
 
-                    <div class="quest-category">
-                        資格
-                    </div>
+    <div class="quest-category">
+        学校行事
+    </div>
 
-                    <h3>
-                        日商簿記2級 合格報告
-                    </h3>
+    <h3>
+        商工フェスタ準備クエスト
+    </h3>
 
-                    <p>
-                        合格者は実績登録できます。
-                    </p>
+    <p>
+        設営・装飾・案内スタッフ募集中
+    </p>
 
-                    <div class="quest-reward">
-                        +120 EXP
-                    </div>
+    <div class="quest-reward">
+        +40 EXP
+    </div>
 
-                </article>
+    <div class="quest-title">
+        ⚔️ パーティーイベント対象
+    </div>
 
+</article>
+
+
+<!-- 簿記 -->
+<article
+    class="quest-card rank-a"
+    onclick="openQuest('bookkeeping')"
+>
+
+    <div class="quest-category">
+        資格
+    </div>
+
+    <h3>
+        日商簿記2級 合格報告
+    </h3>
+
+    <p>
+        合格者は実績登録できます。
+    </p>
+
+    <div class="quest-reward">
+        +120 EXP
+    </div>
+
+</article>
             </section>
 
 
@@ -264,43 +275,57 @@
             ×
         </button>
 
-        <div class="quest-modal-category">
-            ボランティア
-        </div>
+    <div
+    id="modal-category"
+    class="quest-modal-category"
+>
+    ボランティア
+</div>
 
-        <h2>地域清掃ボランティア</h2>
+<h2 id="modal-title">
+    地域清掃ボランティア
+</h2>
 
-        <div class="quest-modal-rank">
-            RANK C
-        </div>
+<div
+    id="modal-rank"
+    class="quest-modal-rank"
+>
+    RANK C
+</div>
+      <div class="quest-detail">
 
-        <div class="quest-detail">
+    <p>
+        📅 <strong>日時</strong><br>
+        <span id="modal-date">9月2日（水）</span>
+    </p>
 
-            <p>
-                📅 <strong>日時</strong><br>
-                9月2日（水）
-            </p>
+    <p>
+        📍 <strong>場所</strong><br>
+        <span id="modal-place">菊池市中央公園</span>
+    </p>
 
-            <p>
-                📍 <strong>場所</strong><br>
-                菊池市中央公園
-            </p>
+    <p>
+        📝 <strong>内容</strong><br>
+        <span id="modal-description">
+            地域の清掃活動に参加します。
+        </span>
+    </p>
 
-            <p>
-                📝 <strong>内容</strong><br>
-                地域の清掃活動に参加します。
-            </p>
+    <p>
+        🏆 <strong>獲得可能称号</strong><br>
+        <span id="modal-title-reward">
+            「地域の助っ人」
+        </span>
+    </p>
 
-            <p>
-                🏆 <strong>獲得可能称号</strong><br>
-                「地域の助っ人」
-            </p>
+</div>
 
-        </div>
-
-        <div class="modal-reward">
-            +80 EXP
-        </div>
+<div
+    id="modal-exp"
+    class="modal-reward"
+>
+    +80 EXP
+</div>
 
         <button class="quest-accept">
             クエストを受ける
