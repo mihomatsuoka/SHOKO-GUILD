@@ -53,9 +53,15 @@ function startGuild() {
 }
 
 
+let currentQuestId = null;
+let acceptedQuest = null;
+
+
 function openQuest(questId) {
 
     const quest = quests[questId];
+
+    currentQuestId = questId;
 
     document.getElementById("modal-category").textContent =
         quest.category;
@@ -81,6 +87,24 @@ function openQuest(questId) {
     document.getElementById("modal-exp").textContent =
         quest.exp;
 
+
+    const button =
+        document.getElementById("quest-accept-button");
+
+
+    if (acceptedQuest === questId) {
+
+        button.textContent = "✓ 受注済み";
+        button.disabled = true;
+
+    } else {
+
+        button.textContent = "クエストを受ける";
+        button.disabled = false;
+
+    }
+
+
     document.getElementById("quest-modal").style.display = "flex";
 
 }
@@ -92,6 +116,18 @@ function closeQuest() {
 
 }
 
-function closeQuest() {
-    document.getElementById("quest-modal").style.display = "none";
+let acceptedQuest = null;
+
+
+function acceptQuest() {
+
+    acceptedQuest = currentQuestId;
+
+    const button =
+        document.getElementById("quest-accept-button");
+
+    button.textContent = "✓ 受注済み";
+
+    button.disabled = true;
+
 }
