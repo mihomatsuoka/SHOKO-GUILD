@@ -68,16 +68,12 @@ function showPage(pageName) {
 
     const pages = document.querySelectorAll(".guild-page");
 
-    /* すべてのページを非表示 */
-
     pages.forEach(function(page) {
 
         page.style.display = "none";
 
     });
 
-
-    /* 選択されたページだけ表示 */
 
     const targetPage =
         document.getElementById("page-" + pageName);
@@ -88,8 +84,6 @@ function showPage(pageName) {
 
     }
 
-
-    /* 冒険の記録を開いたとき */
 
     if (pageName === "adventure") {
 
@@ -116,22 +110,17 @@ function showAdventureLog() {
     container.innerHTML = "";
 
 
-    /* まだクエストを受けていない場合 */
-
     if (acceptedQuests.length === 0) {
 
-        container.innerHTML = `
-            <div class="notice-card">
-                まだ受注したクエストはありません。
-            </div>
-        `;
+        container.innerHTML =
+            '<div class="notice-card">' +
+            'まだ受注したクエストはありません。' +
+            '</div>';
 
         return;
 
     }
 
-
-    /* 受注したクエストを表示 */
 
     acceptedQuests.forEach(function(questId) {
 
@@ -148,23 +137,24 @@ function showAdventureLog() {
         card.className = "quest-record";
 
 
-        card.innerHTML = `
-            <div class="quest-record-category">
-                ${quest.category}
-            </div>
+        card.innerHTML =
+            '<div class="quest-record-category">' +
+                quest.category +
+            '</div>' +
 
-            <h3>
-                ${quest.title}
-            </h3>
+            '<h3>' +
+                quest.title +
+            '</h3>' +
 
-            <p>
-                ${quest.rank}　${quest.exp}
-            </p>
+            '<p>' +
+                quest.rank +
+                '　' +
+                quest.exp +
+            '</p>' +
 
-            <span class="quest-status">
-                ✓ 受注済み
-            </span>
-        `;
+            '<span class="quest-status">' +
+                '✓ 受注済み' +
+            '</span>';
 
 
         container.appendChild(card);
@@ -218,19 +208,13 @@ function openQuest(questId) {
         document.getElementById("quest-accept-button");
 
 
-    /* すでに受注している場合 */
-
     if (acceptedQuests.includes(questId)) {
 
         button.textContent = "✓ 受注済み";
 
         button.disabled = true;
 
-    }
-
-    /* まだ受注していない場合 */
-
-    else {
+    } else {
 
         button.textContent = "クエストを受ける";
 
@@ -252,8 +236,6 @@ function acceptQuest() {
         return;
     }
 
-
-    /* 二重登録を防止 */
 
     if (!acceptedQuests.includes(currentQuestId)) {
 
