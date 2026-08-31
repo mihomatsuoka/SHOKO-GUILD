@@ -269,25 +269,43 @@
                  称号
             ======================================== -->
 
-            <section
-                id="page-titles"
-                class="guild-page"
-                style="display: none;"
-            >
+<section
+    id="page-titles"
+    class="guild-page"
+    style="display: none;"
+>
 
-                <section class="home-section">
+    <section class="home-section">
 
-                    <h2>🏆 称号</h2>
+        <h2>🏆 称号</h2>
 
-                    <div class="notice-card">
-                        獲得した称号がここに表示されます。
-                    </div>
+        <!-- 称号フィルター -->
 
-                </section>
+        <div class="title-filter">
 
-            </section>
+            <button onclick="showAllTitles()">
+                すべて
+            </button>
+
+            <button onclick="showObtainedTitles()">
+                獲得済み
+            </button>
+
+        </div>
 
 
+        <!-- 称号一覧 -->
+
+        <div id="title-list">
+
+            <!-- JavaScriptで自動生成 -->
+
+        </div>
+
+    </section>
+
+</section>
+            
             <!-- ========================================
                  パーティー
             ======================================== -->
