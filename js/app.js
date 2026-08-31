@@ -1,10 +1,10 @@
-function startGuild() {
+/* ========================================
+   商工ギルド 2.0
+   JavaScript
+======================================== */
 
-    document.getElementById("welcome-screen").style.display = "none";
 
-    document.getElementById("guild-home").style.display = "block";
-
-}
+/* ---------- クエストデータ ---------- */
 
 const quests = {
 
@@ -44,6 +44,14 @@ const quests = {
 };
 
 
+/* ---------- 現在の状態 ---------- */
+
+let currentQuestId = null;
+let acceptedQuests = [];
+
+
+/* ---------- ギルドへ入る ---------- */
+
 function startGuild() {
 
     document.getElementById("welcome-screen").style.display = "none";
@@ -53,15 +61,18 @@ function startGuild() {
 }
 
 
-let currentQuestId = null;
-let acceptedQuest = null;
-
+/* ---------- クエスト詳細を開く ---------- */
 
 function openQuest(questId) {
 
     const quest = quests[questId];
 
+    if (!quest) {
+        return;
+    }
+
     currentQuestId = questId;
+
 
     document.getElementById("modal-category").textContent =
         quest.category;
@@ -92,7 +103,7 @@ function openQuest(questId) {
         document.getElementById("quest-accept-button");
 
 
-    if (acceptedQuest === questId) {
+    if (acceptedQuests.includes(questId)) {
 
         button.textContent = "✓ 受注済み";
         button.disabled = true;
@@ -110,18 +121,21 @@ function openQuest(questId) {
 }
 
 
-function closeQuest() {
-
-    document.getElementById("quest-modal").style.display = "none";
-
-}
-
-let acceptedQuest = null;
-
+/* ---------- クエストを受ける ---------- */
 
 function acceptQuest() {
 
-    acceptedQuest = currentQuestId;
+    if (!currentQuestId) {
+        return;
+    }
+
+
+    if (!acceptedQuests.includes(currentQuestId)) {
+
+        acceptedQuests.push(currentQuestId);
+
+    }
+
 
     const button =
         document.getElementById("quest-accept-button");
@@ -129,5 +143,14 @@ function acceptQuest() {
     button.textContent = "✓ 受注済み";
 
     button.disabled = true;
+
+}
+
+
+/* ---------- モーダルを閉じる ---------- */
+
+function closeQuest() {
+
+    document.getElementById("quest-modal").style.display = "none";
 
 }
