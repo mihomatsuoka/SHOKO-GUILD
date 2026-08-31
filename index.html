@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -28,6 +29,7 @@
         <main>
 
             <section class="guild-card">
+
                 <h2>⚔️ ギルドへようこそ</h2>
 
                 <p>
@@ -38,6 +40,7 @@
                 <button onclick="startGuild()">
                     ギルドへ入る
                 </button>
+
             </section>
 
         </main>
@@ -50,12 +53,14 @@
 
 
     <!-- ==============================
-         商工ギルド TOP
+         商工ギルド
     ============================== -->
 
     <div id="guild-home" style="display: none;">
 
-        <!-- プレイヤー情報 -->
+        <!-- ==============================
+             プレイヤー情報
+        ============================== -->
 
         <header class="guild-header">
 
@@ -86,138 +91,271 @@
         </header>
 
 
+        <!-- ==============================
+             メインページ
+        ============================== -->
+
         <main class="guild-home-main">
 
-            <!-- ==============================
-                 クエスト掲示板
-            ============================== -->
 
-            <section class="quest-board">
+            <!-- ========================================
+                 ギルドTOP
+            ======================================== -->
 
-                <div class="board-title">
+            <section
+                id="page-home"
+                class="guild-page"
+            >
 
-                    <h2>📜 クエスト掲示板</h2>
+                <!-- クエスト掲示板 -->
 
-                    <span class="quest-count">
-                        NEW 4件
-                    </span>
+                <section class="quest-board">
 
-                </div>
+                    <div class="board-title">
 
+                        <h2>📜 クエスト掲示板</h2>
 
-                <!-- クエスト -->
-<!-- 地域清掃 -->
-<article
-    class="quest-card rank-c"
-    onclick="openQuest('cleanup')"
->
+                        <span class="quest-count">
+                            NEW 4件
+                        </span>
 
-    <div class="quest-category">
-        ボランティア
-    </div>
-
-    <h3>
-        地域清掃ボランティア
-    </h3>
-
-    <p>
-        9/2（水） 菊池市中央公園
-    </p>
-
-    <div class="quest-reward">
-        +80 EXP
-    </div>
-
-    <div class="quest-title">
-        🏆 限定称号「地域の助っ人」対象
-    </div>
-
-</article>
+                    </div>
 
 
-<!-- 商工フェスタ -->
-<article
-    class="quest-card rank-b"
-    onclick="openQuest('festival')"
->
+                    <!-- 地域清掃 -->
 
-    <div class="quest-category">
-        学校行事
-    </div>
+                    <article
+                        class="quest-card rank-c"
+                        onclick="openQuest('cleanup')"
+                    >
 
-    <h3>
-        商工フェスタ準備クエスト
-    </h3>
+                        <div class="quest-category">
+                            ボランティア
+                        </div>
 
-    <p>
-        設営・装飾・案内スタッフ募集中
-    </p>
+                        <h3>
+                            地域清掃ボランティア
+                        </h3>
 
-    <div class="quest-reward">
-        +40 EXP
-    </div>
+                        <p>
+                            9/2（水） 菊池市中央公園
+                        </p>
 
-    <div class="quest-title">
-        ⚔️ パーティーイベント対象
-    </div>
+                        <div class="quest-reward">
+                            +80 EXP
+                        </div>
 
-</article>
+                        <div class="quest-title">
+                            🏆 限定称号「地域の助っ人」対象
+                        </div>
+
+                    </article>
 
 
-<!-- 簿記 -->
-<article
-    class="quest-card rank-a"
-    onclick="openQuest('bookkeeping')"
->
+                    <!-- 商工フェスタ -->
 
-    <div class="quest-category">
-        資格
-    </div>
+                    <article
+                        class="quest-card rank-b"
+                        onclick="openQuest('festival')"
+                    >
 
-    <h3>
-        日商簿記2級 合格報告
-    </h3>
+                        <div class="quest-category">
+                            学校行事
+                        </div>
 
-    <p>
-        合格者は実績登録できます。
-    </p>
+                        <h3>
+                            商工フェスタ準備クエスト
+                        </h3>
 
-    <div class="quest-reward">
-        +120 EXP
-    </div>
+                        <p>
+                            設営・装飾・案内スタッフ募集中
+                        </p>
 
-</article>
+                        <div class="quest-reward">
+                            +40 EXP
+                        </div>
+
+                        <div class="quest-title">
+                            ⚔️ パーティーイベント対象
+                        </div>
+
+                    </article>
+
+
+                    <!-- 簿記 -->
+
+                    <article
+                        class="quest-card rank-a"
+                        onclick="openQuest('bookkeeping')"
+                    >
+
+                        <div class="quest-category">
+                            資格
+                        </div>
+
+                        <h3>
+                            日商簿記2級 合格報告
+                        </h3>
+
+                        <p>
+                            合格者は実績登録できます。
+                        </p>
+
+                        <div class="quest-reward">
+                            +120 EXP
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+                <!-- 開催中イベント -->
+
+                <section class="home-section">
+
+                    <h2>🎪 開催中イベント</h2>
+
+                    <div class="notice-card">
+                        現在開催中のイベントはありません。
+                    </div>
+
+                </section>
+
+
+                <!-- パーティーのお知らせ -->
+
+                <section class="home-section">
+
+                    <h2>⚔️ パーティーからのお知らせ</h2>
+
+                    <div class="notice-card">
+                        パーティーのお知らせがここに表示されます。
+                    </div>
+
+                </section>
+
             </section>
 
 
-            <!-- ==============================
-                 開催中イベント
-            ============================== -->
+            <!-- ========================================
+                 冒険の記録
+            ======================================== -->
 
-            <section class="home-section">
+            <section
+                id="page-adventure"
+                class="guild-page"
+                style="display: none;"
+            >
 
-                <h2>🎪 開催中イベント</h2>
+                <section class="home-section">
 
-                <div class="notice-card">
-                    現在開催中のイベントはありません。
-                </div>
+                    <h2>📜 冒険の記録</h2>
+
+                    <div id="accepted-quests">
+
+                        <div class="notice-card">
+                            まだ受注したクエストはありません。
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- ========================================
+                 称号
+            ======================================== -->
+
+            <section
+                id="page-titles"
+                class="guild-page"
+                style="display: none;"
+            >
+
+                <section class="home-section">
+
+                    <h2>🏆 称号</h2>
+
+                    <div class="notice-card">
+                        獲得した称号がここに表示されます。
+                    </div>
+
+                </section>
 
             </section>
 
 
-            <!-- ==============================
-                 パーティーのお知らせ
-            ============================== -->
+            <!-- ========================================
+                 パーティー
+            ======================================== -->
 
-            <section class="home-section">
+            <section
+                id="page-party"
+                class="guild-page"
+                style="display: none;"
+            >
 
-                <h2>⚔️ パーティーからのお知らせ</h2>
+                <section class="home-section">
 
-                <div class="notice-card">
-                    パーティーのお知らせがここに表示されます。
-                </div>
+                    <h2>⚔️ パーティー</h2>
+
+                    <div class="notice-card">
+                        パーティー情報がここに表示されます。
+                    </div>
+
+                </section>
 
             </section>
+
+
+            <!-- ========================================
+                 ギルド掲示板
+            ======================================== -->
+
+            <section
+                id="page-board"
+                class="guild-page"
+                style="display: none;"
+            >
+
+                <section class="home-section">
+
+                    <h2>📌 ギルド掲示板</h2>
+
+                    <div class="notice-card">
+                        ギルドからのお知らせがここに表示されます。
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- ========================================
+                 イベント一覧
+            ======================================== -->
+
+            <section
+                id="page-events"
+                class="guild-page"
+                style="display: none;"
+            >
+
+                <section class="home-section">
+
+                    <h2>🎪 イベント一覧</h2>
+
+                    <div class="notice-card">
+                        イベント情報がここに表示されます。
+                    </div>
+
+                </section>
+
+            </section>
+
 
         </main>
 
@@ -228,119 +366,141 @@
 
         <nav class="bottom-menu">
 
-            <button>
-                🪪
-                <span>ギルドカード</span>
+            <button onclick="showPage('home')">
+                🏠
+                <span>ギルド</span>
             </button>
 
-            <button>
+            <button onclick="showPage('adventure')">
                 📜
                 <span>冒険の記録</span>
             </button>
 
-            <button>
+            <button onclick="showPage('titles')">
                 🏆
                 <span>称号</span>
             </button>
 
-            <button>
+            <button onclick="showPage('party')">
                 ⚔️
                 <span>パーティー</span>
             </button>
 
-            <button>
+            <button onclick="showPage('board')">
                 📌
                 <span>掲示板</span>
             </button>
 
-            <button>
+            <button onclick="showPage('events')">
                 🎪
                 <span>イベント</span>
             </button>
 
         </nav>
-    <!-- ==============================
-     クエスト詳細モーダル
-============================== -->
 
-<div id="quest-modal" class="quest-modal">
 
-    <div class="quest-modal-content">
+        <!-- ==============================
+             クエスト詳細モーダル
+        ============================== -->
 
-        <button
-            class="modal-close"
-            onclick="closeQuest()"
-            aria-label="閉じる"
+        <div
+            id="quest-modal"
+            class="quest-modal"
         >
-            ×
-        </button>
 
-    <div
-    id="modal-category"
-    class="quest-modal-category"
->
-    ボランティア
-</div>
+            <div class="quest-modal-content">
 
-<h2 id="modal-title">
-    地域清掃ボランティア
-</h2>
+                <button
+                    class="modal-close"
+                    onclick="closeQuest()"
+                    aria-label="閉じる"
+                >
+                    ×
+                </button>
 
-<div
-    id="modal-rank"
-    class="quest-modal-rank"
->
-    RANK C
-</div>
-      <div class="quest-detail">
 
-    <p>
-        📅 <strong>日時</strong><br>
-        <span id="modal-date">9月2日（水）</span>
-    </p>
+                <div
+                    id="modal-category"
+                    class="quest-modal-category"
+                >
+                    ボランティア
+                </div>
 
-    <p>
-        📍 <strong>場所</strong><br>
-        <span id="modal-place">菊池市中央公園</span>
-    </p>
 
-    <p>
-        📝 <strong>内容</strong><br>
-        <span id="modal-description">
-            地域の清掃活動に参加します。
-        </span>
-    </p>
+                <h2 id="modal-title">
+                    地域清掃ボランティア
+                </h2>
 
-    <p>
-        🏆 <strong>獲得可能称号</strong><br>
-        <span id="modal-title-reward">
-            「地域の助っ人」
-        </span>
-    </p>
 
-</div>
+                <div
+                    id="modal-rank"
+                    class="quest-modal-rank"
+                >
+                    RANK C
+                </div>
 
-<div
-    id="modal-exp"
-    class="modal-reward"
->
-    +80 EXP
-</div>
 
-      <button
-    id="quest-accept-button"
-    class="quest-accept"
-    onclick="acceptQuest()"
->
-    クエストを受ける
-</button>
+                <div class="quest-detail">
+
+                    <p>
+                        📅 <strong>日時</strong><br>
+                        <span id="modal-date">
+                            9月2日（水）
+                        </span>
+                    </p>
+
+
+                    <p>
+                        📍 <strong>場所</strong><br>
+                        <span id="modal-place">
+                            菊池市中央公園
+                        </span>
+                    </p>
+
+
+                    <p>
+                        📝 <strong>内容</strong><br>
+                        <span id="modal-description">
+                            地域の清掃活動に参加します。
+                        </span>
+                    </p>
+
+
+                    <p>
+                        🏆 <strong>獲得可能称号</strong><br>
+                        <span id="modal-title-reward">
+                            「地域の助っ人」
+                        </span>
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="modal-exp"
+                    class="modal-reward"
+                >
+                    +80 EXP
+                </div>
+
+
+                <button
+                    id="quest-accept-button"
+                    class="quest-accept"
+                    onclick="acceptQuest()"
+                >
+                    クエストを受ける
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
-    </div>
-</div>
 
 
     <script src="js/app.js"></script>
 
 </body>
 </html>
+```
